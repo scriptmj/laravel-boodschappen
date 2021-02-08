@@ -19,18 +19,32 @@ class GroceriesController extends Controller{
     }
 
     function store(){
+        $grocery = new Grocery();
+        $grocery->name = request('name');
+        $grocery->amount = request('amount');
+        $grocery->price = request('price');
+        $grocery->save();
 
+        return redirect('/groceries');
     }
 
-    function edit(){
-        return view('groceries\edit');
+    function edit($id){
+        $grocery = Grocery::find($id);
+        return view('groceries\edit', ['grocery' => $grocery]);
     }
 
-    function update(){
+    function update($id){
+        $grocery = Grocery::find($id);
 
+        $grocery->name = request('name');
+        $grocery->amount = request('amount');
+        $grocery->price = request('price');
+        $grocery->save();
+        
+        return redirect('/groceries');
     }
 
     function destroy(){
-
+        return "Deleting";
     }
 }

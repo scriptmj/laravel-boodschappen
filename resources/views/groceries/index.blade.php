@@ -1,13 +1,6 @@
+@extends('../layouts/app')
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@section('content')
     <h1>Index</h1>
     <table>
         <tr>
@@ -17,9 +10,11 @@
         </tr>
     @foreach ($groceries as $grocery)
         <tr>
-            <td>{{$grocery->name}}</td>
+            <td><a href="/groceries/{{$grocery->id}}/edit">{{$grocery->name}}</a></td>
             <td>{{$grocery->amount}}</td>
             <td>{{$grocery->price}}</td>
+            <td><button class="glyphicon glyphicon-trash"></button></td>
+            <!-- <td><a href="/groceries/{{$grocery->id}}"><span class="glyphicon glyphicon-trash"></span></a></td> -->
         </tr>
     @endforeach
     <tr>
@@ -27,5 +22,4 @@
     <td></td>
     <tr>
     </table>
-</body>
-</html>
+    @endsection

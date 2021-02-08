@@ -18,6 +18,18 @@ Route::get('/', function () {
     return redirect('/groceries');
 });
 
+Route::get('/groceries', 'App\Http\Controllers\GroceriesController@index');
+
+Route::get('/groceries/create', 'App\Http\Controllers\GroceriesController@create');
+
+Route::post('/groceries', 'App\Http\Controllers\GroceriesController@store');
+
+Route::get('/groceries/{grocery}/edit', 'App\Http\Controllers\GroceriesController@edit');
+
+Route::put('/groceries/{grocery}', 'App\Http\Controllers\GroceriesController@update');
+
+Route::delete('/groceries/{grocery}', 'App\Http\Controllers\GroceriesController@destroy');
+
 // Route::get('/groceries', function(){
 //     return view('groceries.index');
 // });
@@ -43,14 +55,15 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index');
+// Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index');
 
-Route::get('/groceries/create', [GroceriesController::class, 'create'])->name('groceries.create');
+// Route::get('/groceries/create', [GroceriesController::class, 'create'])->name('groceries.create');
 
-Route::post('/groceries', [GroceriesController::class, 'store'])->name('groceries.store');
+// Route::post('/groceries', [GroceriesController::class, 'store'])->name('groceries.store');
 
-Route::get('/groceries/{grocery}/edit', [GroceriesController::class, 'edit'])->name('groceries.edit');
+// Route::get('/groceries/{grocery}/edit', [GroceriesController::class, 'edit'])->name('groceries.edit');
 
-Route::put('/groceries/{grocery}', [GroceriesController::class, 'update'])->name('groceries.update');
+// Route::put('/groceries/{grocery}', [GroceriesController::class, 'update'])->name('groceries.update');
 
-Route::delete('/groceries/{grocery}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
+// Route::delete('/groceries/{grocery}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
+
