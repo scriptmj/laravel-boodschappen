@@ -7,13 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-
-    <ul>
-    <li><a href="/groceries">Boodschappen</a></li>
-    <li><a href="/groceries/create">Nieuwe boodschap</a></li>
-    </ul>
-    @yield ('header')
-    @yield ('content')
-    @yield ('footer')
+    <br />
+    <div class="container">
+        <ul class="list-unstyled">
+            <li><a href="{{route('groceries.index')}}">Boodschappen</a></li>
+            <li><a href="{{route('groceries.create')}}">Nieuwe boodschap</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        @yield ('content')
+    </div>
 </body>
 </html>
